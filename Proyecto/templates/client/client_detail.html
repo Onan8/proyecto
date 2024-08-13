@@ -1,0 +1,15 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}detalle de usuario{% endblock %}
+
+{% block content %}
+<h2>{{ client.name }}</h2>
+<p>correo: {{ client.email }}</p>
+<p>edad: {{ client.age }}</p>
+<p>Telefono: {{ client.telephone }}</p>
+<p>direccion: {{ client.address }}</p>
+<p>Licencia: {{ client.license }}</p>
+<a href="{% url 'client_update' client.pk %}">Edit</a>
+<a href="{% url 'client_delete' client.pk %}">Delete</a>
+<a href="{% url 'client_list' %}">Back to list</a>
+{% endblock %}

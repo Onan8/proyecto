@@ -1,0 +1,15 @@
+{% extends 'layout/base.html' %}
+{% block title %}
+    detalle de administrador
+{% endblock %}
+{% block content %}
+    <h1>{{ user.name }}</h1>
+    <p>Edad: {{ user.age }}</p>
+    <p>Numero de empliado: {{ user.number_employee }}</p>
+    <p>Telefono: {{ user.phone }}</p>
+    <p>Direccion: {{ user.address }}</p>
+    <p>Numero de identidad: {{ user.number_id }}</p>
+    <p>correo: {{ user.email }}</p>
+    <a href="{% url 'user_update' user.pk %}">Edit</a>
+    <a href="{% url 'user_list' %}">Back to List</a>
+{% endblock %}
