@@ -23,6 +23,7 @@ urlpatterns = [
     #usuario administrador
     path('user/', include('user.urls')),
     path('client/', include('client.urls')),
+    path('seller/', include('seller.urls')),
 
     #login
     path('login/', auth_views.LoginView.as_view(template_name='registration/login.html'), name='login'),

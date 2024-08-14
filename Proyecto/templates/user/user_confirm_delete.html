@@ -1,13 +1,16 @@
 {% extends 'layout/base.html' %}
+
 {% block title %}
-    confirmar eliminacion    
+    Confirmar eliminación
 {% endblock %}
+
 {% block content %}
-    <h1>seguro que desea eliminar el usuario? "{{ user.name }}"?</h1>
+<div class="container mt-4">
+    <h2 class="mb-4">¿Estás seguro de que deseas eliminar el usuario "{{ user.name }}"?</h2>
     <form method="post">
         {% csrf_token %}
-        <button type="submit">Confirm</button>
+        <button type="submit" class="btn btn-danger">Confirmar</button>
     </form>
-    <a href="{% url 'user_list' %}">Cancel</a>
-    
+    <a href="{% url 'user_list' %}" class="btn btn-secondary">Cancelar</a>
+</div>
 {% endblock %}

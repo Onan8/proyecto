@@ -1,15 +1,33 @@
 {% extends 'layout/base.html' %}
+
 {% block title %}
-    detalle de administrador
+    Detalle de Administrador
 {% endblock %}
+
 {% block content %}
-    <h1>{{ user.name }}</h1>
-    <p>Edad: {{ user.age }}</p>
-    <p>Numero de empliado: {{ user.number_employee }}</p>
-    <p>Telefono: {{ user.phone }}</p>
-    <p>Direccion: {{ user.address }}</p>
-    <p>Numero de identidad: {{ user.number_id }}</p>
-    <p>correo: {{ user.email }}</p>
-    <a href="{% url 'user_update' user.pk %}">Edit</a>
-    <a href="{% url 'user_list' %}">Back to List</a>
+<div class="container mt-4">
+    <h2 class="mb-4">{{ user.name }}</h2>
+    <dl class="row">
+        <dt class="col-sm-3">Edad:</dt>
+        <dd class="col-sm-9">{{ user.age }}</dd>
+
+        <dt class="col-sm-3">Número de Empleado:</dt>
+        <dd class="col-sm-9">{{ user.number_employee }}</dd>
+
+        <dt class="col-sm-3">Teléfono:</dt>
+        <dd class="col-sm-9">{{ user.phone }}</dd>
+
+        <dt class="col-sm-3">Dirección:</dt>
+        <dd class="col-sm-9">{{ user.address }}</dd>
+
+        <dt class="col-sm-3">Número de Identidad:</dt>
+        <dd class="col-sm-9">{{ user.number_id }}</dd>
+
+        <dt class="col-sm-3">Correo:</dt>
+        <dd class="col-sm-9">{{ user.email }}</dd>
+    </dl>
+    
+    <a href="{% url 'user_update' user.pk %}" class="btn btn-primary">Editar</a>
+    <a href="{% url 'user_list' %}" class="btn btn-secondary">Volver a la lista</a>
+</div>
 {% endblock %}

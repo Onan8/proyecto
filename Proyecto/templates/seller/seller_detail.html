@@ -1,0 +1,15 @@
+{% extends 'layout/base.html' %}
+
+{% block title %}Detalles de Vendedor{% endblock %}
+
+{% block content %}
+    <h2>{{ seller.name }}</h2>
+    <ul>
+        <li>Correo: {{ seller.email }}</li>
+        <li>Telefono: {{ seller.phone }}</li>
+        <li>Horario: {{ seller.schedule }}</li>
+        <!-- Agrega más campos aquí según sea necesario -->
+    </ul>
+    <a href="{% url 'seller_update' seller.pk %}" class="btn btn-secondary">Editar</a>
+    <a href="{% url 'seller_list' %}" class="btn btn-primary">Volver</a>
+{% endblock %}

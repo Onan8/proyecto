@@ -1,15 +1,21 @@
 {% extends 'layout/base.html' %}
 
-{% block title %}detalle de usuario{% endblock %}
+{% block title %}Detalle de Usuario{% endblock %}
 
 {% block content %}
-<h2>{{ client.name }}</h2>
-<p>correo: {{ client.email }}</p>
-<p>edad: {{ client.age }}</p>
-<p>Telefono: {{ client.telephone }}</p>
-<p>direccion: {{ client.address }}</p>
-<p>Licencia: {{ client.license }}</p>
-<a href="{% url 'client_update' client.pk %}">Edit</a>
-<a href="{% url 'client_delete' client.pk %}">Delete</a>
-<a href="{% url 'client_list' %}">Back to list</a>
+<div class="container mt-4">
+    <h2 class="mb-4">{{ client.name }}</h2>
+    <ul class="list-group mb-4">
+        <li class="list-group-item"><strong>Correo:</strong> {{ client.email }}</li>
+        <li class="list-group-item"><strong>Edad:</strong> {{ client.age }}</li>
+        <li class="list-group-item"><strong>Teléfono:</strong> {{ client.telephone }}</li>
+        <li class="list-group-item"><strong>Dirección:</strong> {{ client.address }}</li>
+        <li class="list-group-item"><strong>Licencia:</strong> {{ client.license }}</li>
+    </ul>
+    <div class="d-flex">
+        <a href="{% url 'client_update' client.pk %}" class="btn btn-primary me-2">Editar</a>
+        <a href="{% url 'client_delete' client.pk %}" class="btn btn-danger me-2">Eliminar</a>
+        <a href="{% url 'client_list' %}" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
 {% endblock %}

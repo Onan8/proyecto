@@ -1,17 +1,12 @@
 {% extends 'layout/base.html' %}
 
-{% block title %}
-    Crear Usuario
-{% endblock %}
+{% block title %}Seller Form{% endblock %}
 
 {% block content %}
-<div class="container mt-4">
-    <h2 class="mb-4">Nuevo Usuario</h2>
+    <h2>Formulario Vendedor</h2>
     <form method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <button type="submit" class="btn btn-primary">Guardar</button>
     </form>
-    <a href="{% url 'user_list' %}" class="btn btn-secondary mt-3">Volver a la Lista</a>
-</div>
 {% endblock %}

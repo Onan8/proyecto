@@ -1,17 +1,24 @@
 {% extends 'layout/base.html' %}
 
-{% block title %}Client List{% endblock %}
+{% block title %}Lista de Usuarios{% endblock %}
 
 {% block content %}
-<h2>lista de usuarios</h2>
-<a href="{% url 'client_create' %}">Create new client</a>
-<ul>
-    {% for client in clients %}
-        <li>
-            <a href="{% url 'client_detail' client.pk %}">{{ client.name }}</a>
-            <a href="{% url 'client_update' client.pk %}">Edit</a>
-            <a href="{% url 'client_delete' client.pk %}">Delete</a>
-        </li>
-    {% endfor %}
-</ul>
+<div class="container mt-4">
+    <h2 class="mb-4">Lista de Usuarios</h2>
+    <a href="{% url 'client_create' %}" class="btn btn-primary mb-3">Crear nuevo cliente</a>
+    <div class="list-group">
+        {% for client in clients %}
+        <div class="list-group-item d-flex justify-content-between align-items-center">
+            <div>
+                <a href="{% url 'client_detail' client.pk %}" class="fw-bold">{{ client.name }}</a>
+                <p class="mb-0">{{ client.email }}</p>
+            </div>
+            <div>
+                <a href="{% url 'client_update' client.pk %}" class="btn btn-sm btn-warning me-2">Editar</a>
+                <a href="{% url 'client_delete' client.pk %}" class="btn btn-sm btn-danger">Eliminar</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
 {% endblock %}

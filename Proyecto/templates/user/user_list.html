@@ -1,17 +1,23 @@
 {% extends 'layout/base.html' %}
+
 {% block title %}
-    Listado de administradores 
+    Listado de Administradores
 {% endblock %}
+
 {% block content %}
-    <h1>lista de usuarios</h1>
-    <a href="{% url 'user_create' %}">Add New User</a>
-    <ul>
+<div class="container mt-4">
+    <h2 class="mb-4">Listado de Administradores</h2>
+    <a href="{% url 'user_create' %}" class="btn btn-primary mb-3">Agregar Nuevo Usuario</a>
+    <ul class="list-group">
         {% for user in users %}
-            <li>
+            <li class="list-group-item d-flex justify-content-between align-items-center">
                 <a href="{% url 'user_detail' user.pk %}">{{ user.name }}</a>
-                <a href="{% url 'user_update' user.pk %}">Edit</a>
-                <a href="{% url 'user_delete' user.pk %}">Delete</a>
+                <div>
+                    <a href="{% url 'user_update' user.pk %}" class="btn btn-warning btn-sm me-2">Editar</a>
+                    <a href="{% url 'user_delete' user.pk %}" class="btn btn-danger btn-sm">Eliminar</a>
+                </div>
             </li>
         {% endfor %}
     </ul>
+</div>
 {% endblock %}
