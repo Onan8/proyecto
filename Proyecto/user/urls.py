@@ -7,7 +7,8 @@ urlpatterns = [
     path('user/new/', views.user_create, name='user_create'),
     path('user/<int:pk>/edit/', views.user_update, name='user_update'),
     path('user/<int:pk>/delete/', views.user_delete, name='user_delete'),
-
-    path('user/<int:pk>/index/',views.user_index, name='user_index'),
-
+    path('user/<int:pk>/index/',  views.user_index,  name='user_index'),
 ]
+
+
+

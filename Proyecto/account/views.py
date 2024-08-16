@@ -6,9 +6,10 @@ from user.models import User
 from client.models import Client
 from seller.models import Seller
 
+#funcion para reddirigir a la pagina inicial
 def index(request):
     return render(request, 'account/index.html')
-
+#funcion para loguearse
 def user_login(request):
     if request.method == 'POST':
         form = LoginForm(request.POST)

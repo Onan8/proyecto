@@ -1,9 +1,100 @@
 {% extends 'layout/base.html' %}
 
-{% block title %}
-    index administrador
-{% endblock %}
+{% block title %}Gestión de Usuarios{% endblock %}
 
 {% block content %}
+<div class="container mt-4">
+    <h2>Gestión de Usuarios</h2>
 
+    <!-- Sección para User -->
+    <div class="mb-3">
+        <h3>Usuarios Administradores</h3>
+        <a href="{% url 'user_create' %}" class="btn btn-primary mb-3">Crear Usuario</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo Electrónico</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for user in users %}
+                    <tr>
+                        <td>{{ user.name }}</td>
+                        <td>{{ user.email }}</td>
+                        <td>{{ user.phone }}</td>
+                        <td>
+                            <a href="{% url 'user_update' user.id %}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{% url 'user_delete' user.id %}" class="btn btn-danger btn-sm" 
+                               onclick="return confirm('¿Estás seguro de eliminar este usuario?');">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección para Client -->
+    <div class="mb-3">
+        <h3>Clientes</h3>
+        <a href="{% url 'client_create' %}" class="btn btn-primary mb-3">Crear Cliente</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo Electrónico</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for client in clients %}
+                    <tr>
+                        <td>{{ client.name }}</td>
+                        <td>{{ client.email }}</td>
+                        <td>{{ client.telephone }}</td>
+                        <td>
+                            <a href="{% url 'client_update' client.id %}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{% url 'client_delete' client.id %}" class="btn btn-danger btn-sm" 
+                               onclick="return confirm('¿Estás seguro de eliminar este cliente?');">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    <!-- Sección para Seller -->
+    <div class="mb-3">
+        <h3>Vendedores</h3>
+        <a href="{% url 'seller_create' %}" class="btn btn-primary mb-3">Crear Vendedor</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Correo Electrónico</th>
+                    <th>Teléfono</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for seller in sellers %}
+                    <tr>
+                        <td>{{ seller.name }}</td>
+                        <td>{{ seller.email }}</td>
+                        <td>{{ seller.phone }}</td>
+                        <td>
+                            <a href="{% url 'seller_update' seller.id %}" class="btn btn-warning btn-sm">Editar</a>
+                            <a href="{% url 'seller_delete' seller.id %}" class="btn btn-danger btn-sm" 
+                               onclick="return confirm('¿Estás seguro de eliminar este vendedor?');">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <!-- a;adir lo demas -->
+</div>
 {% endblock %}

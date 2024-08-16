@@ -1,11 +1,10 @@
 
 from django.shortcuts import render, get_object_or_404, redirect
-from .models import Client
 from .forms import ClientForm
+from django.shortcuts import render
+from .models import Client
 
-
-# Create your views here.
-
+# modelo CRUD.
 
 # Listar todos los clientes
 def client_list(request):
@@ -57,8 +56,7 @@ def client_delete(request, pk):
         return redirect('client_list')
     return render(request, 'client/client_confirm_delete.html', {'client': client})
 
-# En client/views.py
-from django.shortcuts import render
-from .models import Client
+
+
 
 

@@ -2,6 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from .models import User
 
+#modifica  el user por defecto de django
 class UserAdmin(BaseUserAdmin):
     model = User
     list_display = ('email', 'name', 'number_employee', 'is_staff', 'is_superuser')

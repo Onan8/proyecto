@@ -2,7 +2,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Seller
 from .forms import SellerForm
 
-
+#modelo CURD
 def seller_list(request):
     sellers = Seller.objects.all()
     return render(request, 'seller/seller_list.html', {'sellers': sellers})

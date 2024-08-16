@@ -1,9 +1,11 @@
-from django.contrib.auth.decorators import login_required
+
 from django.shortcuts import render, get_object_or_404, redirect
+from client.models import Client
+from seller.models import Seller
 from .models import User
 from .forms import UserCreateForm
 
-
+#modelo CRUD
 def user_list(request):
     users = User.objects.all()
     return render(request, 'user/user_list.html', {'users': users})
@@ -45,5 +47,17 @@ def user_delete(request, pk):
     return render(request, 'user/user_confirm_delete.html', {'user': user})
 
 
-def user_index(request):
-    pass
+
+#funcion para redirigir al admin a su pagina de inicio
+def user_index(request,pk):
+    users = User.objects.all()
+    clients = Client.objects.all()
+    sellers = Seller.objects.all()
+    #a;ade lo demas aqui e importa sus models no olvides importarlos
+
+    return render(request, 'user/user_index.html', {
+        'users': users,
+        'clients': clients,
+        'sellers': sellers
+        #a;adelos de esta manera
+    })
