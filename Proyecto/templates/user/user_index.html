@@ -26,6 +26,7 @@
                         <td>{{ user.email }}</td>
                         <td>{{ user.phone }}</td>
                         <td>
+                            <a href="{% url 'user_detail' user.pk %}" class="btn btn-sm btn-secondary me-2">ver</a>
                             <a href="{% url 'user_update' user.id %}" class="btn btn-warning btn-sm">Editar</a>
                             <a href="{% url 'user_delete' user.id %}" class="btn btn-danger btn-sm" 
                                onclick="return confirm('¿Estás seguro de eliminar este usuario?');">Eliminar</a>
@@ -56,6 +57,7 @@
                         <td>{{ client.email }}</td>
                         <td>{{ client.telephone }}</td>
                         <td>
+                            <a href="{% url 'client_detail' client.pk %}" class="btn btn-sm btn-secondary me-2">ver</a>
                             <a href="{% url 'client_update' client.id %}" class="btn btn-warning btn-sm">Editar</a>
                             <a href="{% url 'client_delete' client.id %}" class="btn btn-danger btn-sm" 
                                onclick="return confirm('¿Estás seguro de eliminar este cliente?');">Eliminar</a>
@@ -86,6 +88,7 @@
                         <td>{{ seller.email }}</td>
                         <td>{{ seller.phone }}</td>
                         <td>
+                            <a href="{% url 'seller_detail' seller.pk %}" class="btn btn-sm btn-secondary me-2">ver</a>
                             <a href="{% url 'seller_update' seller.id %}" class="btn btn-warning btn-sm">Editar</a>
                             <a href="{% url 'seller_delete' seller.id %}" class="btn btn-danger btn-sm" 
                                onclick="return confirm('¿Estás seguro de eliminar este vendedor?');">Eliminar</a>

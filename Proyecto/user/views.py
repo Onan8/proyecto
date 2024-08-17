@@ -53,11 +53,12 @@ def user_index(request,pk):
     users = User.objects.all()
     clients = Client.objects.all()
     sellers = Seller.objects.all()
+
     #a;ade lo demas aqui e importa sus models no olvides importarlos
 
     return render(request, 'user/user_index.html', {
         'users': users,
         'clients': clients,
-        'sellers': sellers
+        'sellers': sellers,
         #a;adelos de esta manera
     })
