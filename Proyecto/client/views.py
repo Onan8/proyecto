@@ -26,7 +26,7 @@ def client_create(request):
             client = form.save(commit=False)
             client.set_password(form.cleaned_data['password'])
             client.save()
-            return redirect('client_list')
+            return redirect('index')
     else:
         form = ClientForm()
     return render(request, 'client/client_form.html', {'form': form})
@@ -42,7 +42,7 @@ def client_update(request, pk):
             if form.cleaned_data['password']:
                 client.set_password(form.cleaned_data['password'])
             client.save()
-            return redirect('client_list')
+            return redirect('index')
     else:
         form = ClientForm(instance=client)
     return render(request, 'client/client_form.html', {'form': form})

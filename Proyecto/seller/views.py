@@ -28,7 +28,7 @@ def seller_update(request, pk):
         form = SellerForm(request.POST, instance=seller)
         if form.is_valid():
             form.save()
-            return redirect('seller_list')
+            return redirect('index')
     else:
         form = SellerForm(instance=seller)
     return render(request, 'seller/seller_form.html', {'form': form})

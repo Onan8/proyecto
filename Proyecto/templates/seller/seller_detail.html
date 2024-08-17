@@ -5,11 +5,17 @@
 {% block content %}
     <h2>{{ seller.name }}</h2>
     <ul>
-        <li>Correo: {{ seller.email }}</li>
+        <li>Nombre: {{ seller.name}}</li>
+        <li>Edad: {{ seller.age }}</li>
+        <li>Numero de Empleado: {{ seller.number_employee }}</li>
         <li>Telefono: {{ seller.phone }}</li>
+        <li>Direccion: {{ seller.address }}</li>
+        <li>ID: {{ seller.number_id }}</li>
+        <li>Correo: {{ seller.email }}</li>
+        <li>Locacion: {{ seller.schedule }}</li>
         <li>Horario: {{ seller.schedule }}</li>
-        <!-- Agrega más campos aquí según sea necesario -->
+       
     </ul>
-    <a href="{% url 'seller_update' seller.pk %}" class="btn btn-secondary">Editar</a>
-    <a href="{% url 'seller_list' %}" class="btn btn-primary">Volver</a>
+    <a href="{% url 'seller_update' seller.pk %}" class="btn btn-primary">Editar</a>
+    <a href="{% url 'seller_detail' seller.pk %}" class="btn btn-secondary">Volver</a>
 {% endblock %}

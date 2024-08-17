@@ -15,9 +15,8 @@
         <li class="list-group-item"><strong>Licencia:</strong> {{ client.license }}</li>
     </ul>
     <div class="d-flex">
-        <a href="{% url 'client_update' client.pk %}" class="btn btn-primary me-2">Editar</a>
-        <a href="{% url 'client_delete' client.pk %}" class="btn btn-danger me-2">Eliminar</a>
-        <a href="{% url 'client_list' %}" class="btn btn-secondary">Volver</a>
+        <a href="{% url 'client_update' client.pk %}" class="btn btn-primary me-2">Editar</a>       
+        <a href="{% url 'index' %}" class="btn btn-secondary">Volver</a>
     </div>
 </div>
 {% endblock %}
