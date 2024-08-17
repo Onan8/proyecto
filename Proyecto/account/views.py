@@ -1,6 +1,6 @@
 from django.contrib.auth import authenticate, login as auth_login
 from django.shortcuts import render, redirect
-from django.http import HttpResponse
+from django.contrib import messages
 from .forms import LoginForm
 from user.models import User
 from client.models import Client
@@ -40,7 +40,7 @@ def user_login(request):
             except Seller.DoesNotExist:
                 pass
 
-            return HttpResponse('Credenciales inválidas o cuenta deshabilitada.')
+            messages.error(request, 'Credenciales inválidas o cuenta deshabilitada.')
     else:
         form = LoginForm()
     return render(request, 'account/login.html', {'form': form})
