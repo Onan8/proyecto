@@ -18,16 +18,29 @@
         <div class="card full-width-card">
             <img src="{{ vehicle.image.url }}" class="card-img-top" alt="Marca Modelo">
             <div class="card-body">
-                <h5 class="card-title">Marca Modelo</h5>
+                <h5 class="card-title">{{ vehicle.tradeMark }} {{ vehicle.vehicleModel }}</h5>
                 <p class="card-text">
-                    <strong>Año:</strong> 2024<br>
-                    <strong>Puertas:</strong> 4<br>
-                    <strong>Transmisión:</strong> Automática<br>
-                    <strong>Tipo:</strong> SUV<br>
-                    <strong>Precio:</strong> $100 por día
+                    <strong>Año:</strong> {{ vehicle.year }}<br>
+                    <strong>Puertas:</strong> {{ vehicle.numberDoors }}<br>
+                    <strong>Transmisión:</strong> {{ vehicle.transmission }}<br>
+                    <strong>Tipo:</strong> {{ vehicle.vehicleType }}<br>
+                    <strong>Precio:</strong> {{ vehicle.price }} por día
+                    <p>{{  request.session.client_id }}</p>
+                    <p>{{ vehicle.pk }}</p>
                 </p>
-                <a href="#" class="btn btn-primary">Ver más detalles</a>
             </div>
         </div>
     </div>
+    
+    <form action="{% url 'save_rent' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="hidden" name="vehicle" value="{{ vehicle.id }}">
+                <input type="hidden" name="client" value="{{ request.session.client_id }}">
+                <input type="date" name="dayEntrance">
+                <input type="date" name="dayExit">
+            </div>
+            <button type="submit" >Guardar</button>
+        </form>
+    
 {% endblock %}

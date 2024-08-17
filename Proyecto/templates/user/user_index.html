@@ -164,6 +164,64 @@
             </tbody>
         </table>
     </div>
+
+<br>
+    <div class="mb-3">
+        <h3>Alquileres</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id Vehiculo</th>
+                    <th>Id Cliente</th>
+                    <th>Dia de Entrada</th>
+                    <th>Dia de salida</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for rent in rental %}
+                    <tr>
+                        <td>{{ rent.RentalVehicle }}</td>
+                        <td>{{ rent.client }}</td>
+                        <td>{{ rent.dayEntrance }}</td>
+                        <td>{{ rent.dayExit }}</td>
+                        <td>
+                            <a href="{% url 'delete_rental' rent.pk %}" class="btn btn-danger btn-sm" 
+                               onclick="return confirm('¿Estás seguro de eliminar este vehiculo?');">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+<br>
+    <div class="mb-3">
+        <h3>Citas</h3>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>Id Vehiculo</th>
+                    <th>Id Cliente</th>
+                    <th>Dia de la cita</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for date in dates %}
+                    <tr>
+                        <td>{{ date.DateVehicle }}</td>
+                        <td>{{ date.client }}</td>
+                        <td>{{ date.daydate }}</td>
+                        <td>
+                            <a href="{% url 'delete_date' date.pk %}" class="btn btn-danger btn-sm" 
+                               onclick="return confirm('¿Estás seguro de eliminar este registro?');">Eliminar</a>
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
 </div>
     
     

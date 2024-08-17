@@ -6,5 +6,6 @@ urlpatterns = [
     path('date/new', views.create_vehicle_date, name='create_vehicle_date'),
     path('date/detailVehicle/<int:pk>', views.detail_vehicle_date, name='detail_vehicle_date'),
     path('vehicle/delete/<int:pk>', views.delete_vehicle_date, name='delete_vehicle_date'),
-
+    path('save/date', views.save_date, name='save_date'),
+    path('date/deleteDate/<int:pk> ', views.delete_date, name='delete_date'),
 ]

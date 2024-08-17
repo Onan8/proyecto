@@ -15,7 +15,9 @@ class RentalVehicle(models.Model):
     image = models.ImageField(upload_to='vehicles/')
 
 
-
 class Rental(models.Model):
     RentalVehicle = models.ForeignKey(RentalVehicle, on_delete=models.CASCADE)
     client = models.ForeignKey(Client, on_delete=models.CASCADE)
+    dayEntrance = models.DateField(null=True)
+    dayExit = models.DateField(null=True
+)

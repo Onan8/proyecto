@@ -3,6 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .forms import ClientForm
 from django.shortcuts import render
 from .models import Client
+from date.models import Date
 
 # modelo CRUD.
 
@@ -55,8 +56,3 @@ def client_delete(request, pk):
         client.delete()
         return redirect('client_list')
     return render(request, 'client/client_confirm_delete.html', {'client': client})
-
-
-
-
-

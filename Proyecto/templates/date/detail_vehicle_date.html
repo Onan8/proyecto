@@ -29,4 +29,16 @@
             </div>
         </div>
     </div>
+
+     <form action="{% url 'save_date' %}" method="POST">
+            {% csrf_token %}
+            <div class="form-group">
+                <input type="hidden" name="vehicle" value="{{ vehicle.id }}">
+                <input type="hidden" name="client" value="{{ request.session.client_id }}">
+                <labe>Agendar dia de la cita</labe>
+                <br>
+                <input type="date" name="dayDate">
+            </div>
+            <button type="submit" >Agendar</button>
+        </form>
 {% endblock %}

@@ -4,7 +4,8 @@ from date.models import DateVehicle
 from seller.models import Seller
 from .models import User
 from .forms import UserCreateForm
-from rent.models import RentalVehicle
+from rent.models import RentalVehicle, Rental
+from date.models import DateVehicle, Date
 
 
 #modelo CRUD
@@ -56,6 +57,8 @@ def user_index(request, pk):
     sellers = Seller.objects.all()
     vehicle_rents = RentalVehicle.objects.all()
     vehicle_dates = DateVehicle.objects.all()
+    rental = Rental.objects.all()
+    dates = Date.objects.all()
 
     #a;ade lo demas aqui e importa sus models no olvides importarlos
 
@@ -65,5 +68,7 @@ def user_index(request, pk):
         'sellers': sellers,
         'vehicle_rents': vehicle_rents,
         'vehicle_dates': vehicle_dates,
+        'rental': rental,
+        'dates': dates
         #a;adelos de esta manera
     })
