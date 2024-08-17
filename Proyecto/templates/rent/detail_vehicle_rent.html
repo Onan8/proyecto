@@ -1,0 +1,44 @@
+{% extends 'layout/base.html' %}
+{% block title %}  {{ vehicle.tradeMark }} {{ vehicle.vehicleModel }}{% endblock %}
+
+{% block content %}
+    
+    <table>
+        <tr>
+            <td>{{ vehicle.tradeMark }}</td>
+            <td>{{ vehicle.vehicleModel }}</td>
+            <td>{{ vehicle.year }}</td>
+            <td>{{ vehicle.numberDoors }}</td>
+            <td>{{ vehicle.transmission }}</td>
+            <td><img src='{{ vehicle.image.url }}' alt=""></td>
+        </tr>
+    </table>
+    <style>
+        .full-width-card {
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .full-width-card img {
+            height: 400px;
+            object-fit: cover;
+        }
+    </style>
+    
+    <div class="container-fluid">
+        <div class="card full-width-card">
+            <img src="{{ vehicle.image.url }}" class="card-img-top" alt="Marca Modelo">
+            <div class="card-body">
+                <h5 class="card-title">Marca Modelo</h5>
+                <p class="card-text">
+                    <strong>Año:</strong> 2024<br>
+                    <strong>Puertas:</strong> 4<br>
+                    <strong>Transmisión:</strong> Automática<br>
+                    <strong>Tipo:</strong> SUV<br>
+                    <strong>Precio:</strong> $100 por día
+                </p>
+                <a href="#" class="btn btn-primary">Ver más detalles</a>
+            </div>
+        </div>
+    </div>
+{% endblock %}

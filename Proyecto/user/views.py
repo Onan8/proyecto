@@ -1,9 +1,10 @@
-
 from django.shortcuts import render, get_object_or_404, redirect
 from client.models import Client
 from seller.models import Seller
 from .models import User
 from .forms import UserCreateForm
+from rent.models import RentalVehicle
+
 
 #modelo CRUD
 def user_list(request):
@@ -47,12 +48,12 @@ def user_delete(request, pk):
     return render(request, 'user/user_confirm_delete.html', {'user': user})
 
 
-
 #funcion para redirigir al admin a su pagina de inicio
-def user_index(request,pk):
+def user_index(request, pk):
     users = User.objects.all()
     clients = Client.objects.all()
     sellers = Seller.objects.all()
+    vehicle_rents = RentalVehicle.objects.all()
 
     #a;ade lo demas aqui e importa sus models no olvides importarlos
 
@@ -60,5 +61,6 @@ def user_index(request,pk):
         'users': users,
         'clients': clients,
         'sellers': sellers,
+        'vehicle_rents': vehicle_rents,
         #a;adelos de esta manera
     })
