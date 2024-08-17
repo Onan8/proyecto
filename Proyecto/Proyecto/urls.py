@@ -39,6 +39,9 @@ urlpatterns = [
     #rent
     path('rent/', include('rent.urls')),
 
+    #date
+    path('date/', include('date.urls')),
+
 ]
 
 

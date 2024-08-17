@@ -1,0 +1,10 @@
+{% extends 'layout/base.html' %}
+{% block title %} Nuevo{% endblock %}
+{% block content %}
+    <h1>Crea un nuevo vehiculo </h1>
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}  
+        <button type="submit">Guardar Vehículo</button>
+    </form>
+{% endblock %}

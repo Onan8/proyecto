@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from client.models import Client
+from date.models import DateVehicle
 from seller.models import Seller
 from .models import User
 from .forms import UserCreateForm
@@ -54,6 +55,7 @@ def user_index(request, pk):
     clients = Client.objects.all()
     sellers = Seller.objects.all()
     vehicle_rents = RentalVehicle.objects.all()
+    vehicle_dates = DateVehicle.objects.all()
 
     #a;ade lo demas aqui e importa sus models no olvides importarlos
 
@@ -62,5 +64,6 @@ def user_index(request, pk):
         'clients': clients,
         'sellers': sellers,
         'vehicle_rents': vehicle_rents,
+        'vehicle_dates': vehicle_dates,
         #a;adelos de esta manera
     })

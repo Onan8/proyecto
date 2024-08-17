@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'seller',
     'account',
     'rent',
+    'date',
 
 ]
 

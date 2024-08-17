@@ -1,0 +1,27 @@
+{% extends 'layout/base.html' %}
+{% block title %} Citas{% endblock %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            {% for vehicle in vehicles %}
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <img src="{{ vehicle.image.url }}" class="card-img-top" alt="{{ vehicle.tradeMark }} {{ vehicle.vehicleModel }}" style="max-height: 250px; width: 100%; object-fit: cover;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ vehicle.tradeMark }} {{ vehicle.vehicleModel }}</h5>
+                        <p class="card-text">
+                            <strong>Año:</strong> {{ vehicle.year }}<br>
+                            <strong>Puertas:</strong> {{ vehicle.numberDoors }}<br>
+                            <strong>Transmisión:</strong> {{ vehicle.transmission }}<br>
+                            <strong>Tipo:</strong> {{ vehicle.vehicleType }}<br>
+                            <strong>Precio:</strong> {{ vehicle.price }} Lps.
+                        </p>
+                        <a href="{% url 'detail_vehicle_date' vehicle.pk %}" class="btn btn-primary">Agendar Cita</a>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+{% endblock %}
